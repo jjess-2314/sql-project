@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SQL Project – Disability and Social Impact Movies</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+    h1 {
+      color: #004466;
+    }
+    h2 {
+      color: #006699;
+      margin-top: 30px;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-left: 5px solid #004466;
+      overflow-x: auto;
+    }
+    ul {
+      line-height: 1.6;
+    }
+    p {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>📊 SQL Project – Analyzing Social Impact Movies</h1>
+
+  <h2>🎯 Objective:</h2>
+  <p>
+    This project uses SQL to store and analyze real Indian movies that portray disability or social issues.
+  </p>
+
+  <h2>🗃️ Tables Used:</h2>
+  <ul>
+    <li><strong>Movies</strong>(MovieID, Title, Language, YearReleased)</li>
+    <li><strong>Ratings</strong>(RatingID, MovieID, Rating)</li>
+  </ul>
+
+  <h2>🧪 Sample Data:</h2>
+  <ul>
+    <li>Deiva Thirumagal (Tamil, 2011)</li>
+    <li>Ambili (Malayalam, 2019)</li>
+    <li>Taare Zameen Par (Hindi, 2007)</li>
+    <li>Black (Hindi, 2005)</li>
+    <li>Margarita with a Straw (2014)</li>
+    <li>My Name is Khan (2010)</li>
+    <li>Barfi! (2012)</li>
+    <li>Paa (2009)</li>
+  </ul>
+
+  <h2>🎯 Ratings:</h2>
+  <ul>
+    <li>Deiva Thirumagal: 9, 8</li>
+    <li>Taare Zameen Par: 10, 10</li>
+    <li>Ambili: 8</li>
+    <li>Barfi!: 9</li>
+    <li>Black: 9</li>
+    <li>Others: 7–9</li>
+  </ul>
+
+  <h2>💻 SQL Queries:</h2>
+
+  <h3>1. Show all movies</h3>
+  <pre>SELECT * FROM Movies;</pre>
+
+  <h3>2. Show all ratings</h3>
+  <pre>SELECT * FROM Ratings;</pre>
+
+  <h3>3. Average rating per movie</h3>
+  <pre>
+SELECT Movies.Title, AVG(Ratings.Rating) AS AverageRating
+FROM Movies
+JOIN Ratings ON Movies.MovieID = Ratings.MovieID
+GROUP BY Movies.Title;
+  </pre>
+
+  <h3>4. Movies with rating above 8</h3>
+  <pre>
+SELECT DISTINCT Movies.Title
+FROM Movies
+JOIN Ratings ON Movies.MovieID = Ratings.MovieID
+WHERE Ratings.Rating > 8;
+  </pre>
+
+  <h2>📈 Results:</h2>
+  <ul>
+    <li>Highest rated: Taare Zameen Par (10), Barfi!, My Name is Khan</li>
+    <li>Multi-ratings: Deiva Thirumagal – 8.5 avg</li>
+    <li>Lowest rating: Paa – 7</li>
+  </ul>
+
+  <h2>💡 What I Learned:</h2>
+  <p>
+    This project helped me practice SQL queries like SELECT, JOIN, WHERE, and GROUP BY using real-life data. I also learned how to organize data in tables and find meaningful insights.
+  </p>
+
+</body>
+</html>
